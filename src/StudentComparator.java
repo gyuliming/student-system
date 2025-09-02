@@ -1,5 +1,3 @@
-package mission;
-
 import java.io.Serializable;
 import java.util.Comparator;
 
