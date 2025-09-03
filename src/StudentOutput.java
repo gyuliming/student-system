@@ -56,11 +56,7 @@ public class StudentOutput {
         //정렬을 위해 리스트에 담음
         datas = new ArrayList<>(students.values());
         //오름차순 정렬
-        datas.sort((s1, s2) -> {
-            int cmp = Double.compare(s1.getAverage(), s2.getAverage()); // 음수면 s1이 앞, 양수면 s2가 앞
-            if (cmp == 0) return s1.getName().compareTo(s2.getName()); // 평균이 같을 경우 이름으로 오름차순 정렬
-            return cmp;
-        });
+        datas.sort(new StudentComparator());
     }
 
     public void printInfo() {

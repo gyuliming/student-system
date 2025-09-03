@@ -44,13 +44,6 @@ public class SortedStudent {
             return;
         }
 
-        //정렬 기준을 정의하는 Comparator 인터페이스를 람다식으로 호출
-//        Comparator<Student> comparator = (s1, s2) -> {
-//            //평균 비교 오름차순
-//            int cmp = Double.compare(s1.getAverage(), s2.getAverage());
-//            return (cmp != 0) ? cmp : s1.getName().compareTo(s2.getName());     //이름기준
-//        };
-
         sortedSet = new TreeSet<>(new StudentComparator());      //TreeSet 객체 생성 시 comparator에 전달
         sortedSet.addAll(students.values());        //Student 객체들을 TreeSet에 추가
 
