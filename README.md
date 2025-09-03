@@ -59,15 +59,15 @@ src
 ---
 
 ## 🔄️ 실행 흐름
-1. StudentInput
+**1. StudentInput**
 
    - `main()` 실행 → InnerClass 객체 생성 → `loadCheck()` (기존 파일 로드) → `printUsage()` (안내문 출력) → `checkkeyAndInputData()` (사용자 입력 처리) → `saveData()` (`student.dat` 파일 저장)
 
-2. StudentOutput
+**2. StudentOutput**
    
    - `main()` 실행 → `loadObjectFromFile()` (`student.dat` 로드) → `rearrangeData()` (ArrayList로 변환 및 정렬) → `printInfo()` (콘솔에 결과 출력)
 
-3. SortedStudent 
+**3. SortedStudent** 
    
    - `main()` 실행 → `loadObjectFromFile()` (`student.dat` 로드) → `createTreeSet()` (`TreeSet`으로 자동 정렬) → `printResult()` (상위 10명 미리보기 출력) → `outputObject()` (`orderByAvg.dat` 파일 저장)
 
