@@ -37,6 +37,7 @@ src
     -  `ObjectInputStream`으로 기존 `student.dat` 파일 로드 또는 새로운 파일 생성
     - `ObjectOutputStream`을 사용해 `HashMap` 객체 전체를 `student.dat` 파일에 직렬화하여 저장
     - 이너 클래스를 사용해 데이터 로딩, 사용자 입력, 파일 저장 등 `StudentInput`의 실질적인 로직을 담당
+             <img src = "https://github.com/gyuliming/student-system/blob/main/img/main.png" width = "500" height="400" alt="main 실행">
 
 
 - **`StudentOutput`**
@@ -58,28 +59,41 @@ src
 
 ---
 
+### 예외 처리
+
+- **`사용자 유효 입력성 검증`**
+
+    - 점수 입력 시 숫자가 아닌 값이 들어올 경우, `NumberFormatException`을 처리하여 프로그램이 종료되지 않고 재입력을 유도
+
+- **`파일 I/O 오류 처리`**
+
+    - `FileNotFoundException`, `IOException`을 처리하여 파일이 없거나 읽는 중 문제가 발생해도 프로그램이 강제 종료되지 않도록 보호
+
+    - `ClassNotFoundException`을 처리하여, 저장된 객체의 클래스 정보가 현재 프로그램과 호환되지 않을 경우에 대비
+ 
+    - `try-with-resources` 구문을 사용하여 파일 스트림과 같은 시스템 리소스가 오류 발생 여부와 관계없이 항상 자동으로 닫히도록 구현
+
+---
+
 ## 🔄️ 실행 흐름
-**1. StudentInput**
+**`1. StudentInput`**
 
    - `main()` 실행 → InnerClass 객체 생성 → `loadCheck()` (기존 파일 로드) → `printUsage()` (안내문 출력) → `checkkeyAndInputData()` (사용자 입력 처리) → `saveData()` (`student.dat` 파일 저장)
 
-**2. StudentOutput**
+**`2. StudentOutput`**
    
    - `main()` 실행 → `loadObjectFromFile()` (`student.dat` 로드) → `rearrangeData()` (ArrayList로 변환 및 정렬) → `printInfo()` (콘솔에 결과 출력)
 
-**3. SortedStudent** 
+**`3. SortedStudent`** 
    
    - `main()` 실행 → `loadObjectFromFile()` (`student.dat` 로드) → `createTreeSet()` (`TreeSet`으로 자동 정렬) → `printResult()` (상위 10명 미리보기 출력) → `outputObject()` (`orderByAvg.dat` 파일 저장)
 
 ---
 
 ## 💻 실행 예시
-
-![Input 실행 화면](img/StudentInput.png)
-
-![Output 실행 화면](img/StudentOutput.png)
-
-![File-save 실행 화면](img/SortedStudent.png)
+<img src = "https://github.com/gyuliming/student-system/blob/main/img/StudentInput.png" width = "600" height="800" alt="Input 실행"/>
+<img src = "https://github.com/gyuliming/student-system/blob/main/img/StudentOutput.png" width = "600" height="400" alt="Output 실행"/>
+<img src = "https://github.com/gyuliming/student-system/blob/main/img/SortedStudent.png" width = "600" height="400" alt="Sorted 실행"/>
 
 ---
 
