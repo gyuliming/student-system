@@ -36,6 +36,7 @@ src
     - 사용자가 입력한 정보를 `HashMap<String, Student>` 을 사용해서 데이터 관리
     -  `ObjectInputStream`으로 기존 `student.dat` 파일 로드 또는 새로운 파일 생성
     - `ObjectOutputStream`을 사용해 `HashMap` 객체 전체를 `student.dat` 파일에 직렬화하여 저장
+    - 이너 클래스를 사용해 데이터 로딩, 사용자 입력, 파일 저장 등 `StudentInput`의 실질적인 로직을 담당
 
 
 - **`StudentOutput`**
@@ -57,20 +58,33 @@ src
 
 ---
 
-## 🚀 실행 방법
+## 🔄️ 실행 흐름
+1. StudentInput
 
-```
-# src 디렉토리에서 실행
-javac *.java
-java StudentInput   # 학생 정보 입력 및 저장
-java StudentOutput  # 정렬된 결과 콘솔 출력
-java SortedStudent  # 정렬된 결과 파일로 저장
-```
+   - `main()` 실행 → InnerClass 객체 생성 → `loadCheck()` (기존 파일 로드) → `printUsage()` (안내문 출력) → `checkkeyAndInputData()` (사용자 입력 처리) → `saveData()` (`student.dat` 파일 저장)
+
+2. StudentOutput
+   
+   - `main()` 실행 → `loadObjectFromFile()` (`student.dat` 로드) → `rearrangeData()` (ArrayList로 변환 및 정렬) → `printInfo()` (콘솔에 결과 출력)
+
+3. SortedStudent 
+   
+   - `main()` 실행 → `loadObjectFromFile()` (`student.dat` 로드) → `createTreeSet()` (`TreeSet`으로 자동 정렬) → `printResult()` (상위 10명 미리보기 출력) → `outputObject()` (`orderByAvg.dat` 파일 저장)
 
 ---
 
 ## 💻 실행 예시
 
-|             정보 입력              |              결과 출력               |                 파일 저장                |
-|:------------------------------------:|:--------------------------------------:|:-----------------------------------------:|
-| ![Input 실행 화면](img/StudentInput.png) | ![Output 실행 화면](img/StudentOutput.png) | ![File-save 실행 화면](img/SortedStudent.png) |
+![Input 실행 화면](img/StudentInput.png)
+
+![Output 실행 화면](img/StudentOutput.png)
+
+![File-save 실행 화면](img/SortedStudent.png)
+
+---
+
+## ⚙️ 확장 포인트
+
+- 학생 정보 수정 및 검색 추가 가능
+
+- 데이터 저장소를 DB 기반으로 교체 가능
