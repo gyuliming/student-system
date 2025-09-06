@@ -91,9 +91,19 @@ src
 ---
 
 ## 💻 실행 예시
-<img src = "https://github.com/gyuliming/student-system/blob/main/img/StudentInput.png" width = "600" height="800" alt="Input 실행"/>
-<img src = "https://github.com/gyuliming/student-system/blob/main/img/StudentOutput.png" width = "600" height="400" alt="Output 실행"/>
-<img src = "https://github.com/gyuliming/student-system/blob/main/img/SortedStudent.png" width = "600" height="400" alt="Sorted 실행"/>
+
+**✅ 프로그램 실행 결과** 
+
+![Input 실행](/img/StudentInput.png)
+
+![Output 실행](/img/StudentOutput.png)
+
+![Sorted 실행](/img/SortedStudent.png)
+
+
+**⚠️ 예외 처리**
+ 
+![error 실행](/img/error.png)
 
 ---
 
