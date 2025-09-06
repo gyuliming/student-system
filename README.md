@@ -100,6 +100,7 @@ src
 
 ![Sorted 실행](/img/SortedStudent.png)
 
+---
 
 **⚠️ 예외 처리**
  
